@@ -1,0 +1,45 @@
+---
+title: "Tugas Limit"
+author: "Gabriel Imam Andaru"
+date: "4/15/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(Ryacas0)
+```
+### Solve Problem using R
+
+$$ 
+1. \lim_{x \to 2} (8-3x+12x^2)
+$$
+```{r}
+x <- Sym("x")
+Limit(8-3*x+12*x^2,x,2)
+```
+$$ 
+2. \lim_{x \to \infty} \frac{x^2+5x+10}{3x^2-6x-2}
+$$
+```{r}
+x <- Sym("x")
+Limit((x^2+5*x+10)/(3*x^2-6*x-2),x,Infinity)
+```
+$$ 
+3. \lim_{h \to 0} \frac{(6+h)^2-36}{h}
+$$
+
+```{r}
+h <- Sym("x")
+Limit((6+h)^2-36/(h),h,0)
+```
+$$ 
+4. \lim_{x \to 0} \frac{x}{3-\sqrt{x+9}}
+$$
+```{r}
+x <- Sym("x")
+Limit(x/(3-sqrt(x+9)),x,0)
+```
