@@ -1,0 +1,72 @@
+---
+title: "15-Differentiation"
+author: "Gabriel Imam Andaru"
+date: "5/29/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(Ryacas)
+```
+
+Exercise 1 
+using D and yac_expr function
+
+##### 1. y = 2x^5^  
+```{r}
+#D func
+D(expression(2*x^5),'x')
+
+#yac_expr
+
+yac_expr("D(x)2*x^5")
+```
+##### 2. y = x^2^ + 4
+
+```{r}
+#D func
+D(expression(x^2+4),'x')
+
+#yac_expr
+
+yac_expr("D(x)x^2+4")
+```
+  
+##### 3. y = x^5^ - 6x^7^
+```{r}
+#D func
+D(expression(x^5-6*x^7),'x')
+
+#yac_expr
+
+yac_expr("D(x)x^5-6*x^7")
+```
+
+
+##### Conclusion: I would say, it give the same results but, Ryacas give more simplified solution.
+***
+
+Exercise 2
+
+##### f(x) = x^6^ - 2 and g(x) = sin(x) - 4
+
+```{r}
+# 1. d/dx (f(x).g(x))
+yac_expr("D(x) (x^6-2)*(Sin(x)-4)")
+
+# 2. d/dx(g(x).f(x))
+yac_expr("D(x) (Sin(x)-4)*(x^6-2)")
+
+# 3. d/dx(f(x)/g(x))
+yac_expr("D(x) (x^6-2)/(Sin(x)-4)")
+
+# 4. d/dx(g(x)/f(x))
+yac_expr("D(x) (Sin(x)-4)/(x^6-2)")
+
+# 5. d/dx(f o g)(x)
+yac_expr("D(x) ((Sin(x)-4)^6-2)")
+
+# 6. d/dx(g o f)(x)
+yac_expr("D(x) (Sin((x^6-2))-4)")
+```
